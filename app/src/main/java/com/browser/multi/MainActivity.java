@@ -12,11 +12,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         WebView wv = new WebView(this);
         setContentView(wv);
+        
         WebSettings s = wv.getSettings();
         s.setJavaScriptEnabled(true);
         s.setDomStorageEnabled(true);
+        s.setDatabaseEnabled(true);
+        
+        // Ключевой момент для "каждая вкладка - новая сессия"
+        // Очищаем куки и кэш при каждом запуске приложения
         CookieManager.getInstance().removeAllCookies(null);
         CookieManager.getInstance().flush();
+        wv.clearCache(true);
+        
         wv.setWebViewClient(new WebViewClient());
         wv.loadUrl("https://whoer.net");
     }
