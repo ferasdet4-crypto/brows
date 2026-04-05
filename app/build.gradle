@@ -1,20 +1,9 @@
-
-plugins {
-    id 'com.android.application'
-}
-
-android {
-    namespace 'com.browser.multi'
-    compileSdk 33
-    defaultConfig {
-        applicationId "com.browser.multi"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
-    }
-}
-
-dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-}
+plugins { id 'com.android.application' }
+android { namespace 'com.browser.multi'
+compileSdk 33
+defaultConfig { applicationId 'com.browser.multi'
+minSdk 24
+targetSdk 33
+versionCode 1
+versionName '1.0' } }
+dependencies { implementation 'androidx.appcompat:appcompat:1.6.1' }
