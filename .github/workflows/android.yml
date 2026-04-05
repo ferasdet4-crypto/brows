@@ -11,13 +11,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
-      - name: Build with Gradle
-        run: |
-          echo "include ':app'" > settings.gradle
-          chmod +x gradlew || true
-          ./gradlew assembleDebug || gradle assembleDebug
-      - name: Upload APK
+      
+      - name: Setup Gradle 7.4.2
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.4.2
+
+      - name: Build APK
+        run: gradle assembleDebug
+        
+      - name: Upload Result
         uses: actions/upload-artifact@v4
         with:
           name: browser-apk
